@@ -1,0 +1,27 @@
+--[[
+    - 参考資料
+      - README (THEME DEFINITIONS, KEYWORD GROUPS)
+        - https://gitlab.com/saalen/highlight/-/blob/3.41/README
+--]]
+
+Description = "code"
+
+Default        = { Colour="#654321" } -- #654321が含まれる規則はDartに消される。
+Canvas         = { Colour="#ffffff" }
+Number         = { Colour="#00bf00" } -- darken(lime, 12.5%)
+Escape         = { Colour="#ff33ff" } -- lighten(magenta, 10%)
+String         = { Colour="#d73030" } -- lighten(firebrick, 10%)
+StringPreProc  = { Colour="#b22222" } -- firebrick
+BlockComment   = { Colour="#676767" } -- darken(gray, 10%)
+LineComment    = BlockComment
+PreProcessor   = { Colour="#4b0082" } -- indigo
+LineNum        = Default
+Operator       = Default
+Interpolation  = Default
+
+Keywords = {
+  { Colour= "#191970" }, -- lighten(midnightblue, 0%)
+  { Colour= "#22229a" }, -- lighten(midnightblue, 10%)
+  { Colour= "#2c2cc3" }, -- lighten(midnightblue, 20%)
+  { Colour= "#4b4bd7" }, -- lighten(midnightblue, 30%)
+}

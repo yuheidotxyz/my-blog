@@ -1,0 +1,65 @@
+@use 'code';
+:root {
+    font: {
+        size: larger;
+    }
+    word-break: break-all;
+}
+body {
+    > header {
+        font-size: 2em;
+    }
+    max-width: 30em;
+    padding: 0 1em;
+    margin: auto;
+}
+h1 {
+    font-size: 300%;
+    line-height: 1;
+    margin: 0;
+}
+#toc {
+    h2 {
+        font-size: 1em;
+        &::before {
+            content: none;
+        }
+    }
+    display: inline-block;
+    border: {
+        style: solid;
+        width: medium;
+    }
+    padding: {
+        right: 1em;
+    }
+    ol {
+        counter-reset: section;
+    }
+    li {
+        counter-increment: section;
+        &::marker {
+            content: counters(section, '.') '. ';
+        }
+    }
+}
+main {
+    $section: null;
+    @for $i from 2 through 6 {
+        h#{$i} {
+            counter-increment: h#{$i};
+            @if $i+1 <= 6 {
+                counter-reset: h#{$i+1};
+            }
+            &::before {
+                $section: $section counter(h#{$i}) '.';
+                content: $section ' ';
+            }
+        }
+    }
+}
+.index {
+    p {
+        font-size: 1.5em;
+    }
+}
